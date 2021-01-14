@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    
+</head>
+<body  onload="calls() , listContacts()"  >
+    
+    <div class="container" style="  background-color: #6d5ec2; width: 270px; margin:0; height: 523px;">
+        <div class="row">
+          <div class="col-md-12" style="padding: 0;"> 
+            <!-- Nav tabs -->
+            <div class="card"  style=" background-color: #600992; /* For browsers that do not support gradients */
+            background-image: linear-gradient(#600992,#91799F);">
+              <ul class="nav nav-tabs" role="tablist" style="padding: 14px ;border-bottom: 1px solid white; ">
+                <li role="presentation" class="active"><a href="#clavier" aria-controls="clavier" role="tab" data-toggle="tab"><i class="fa fa-home"></i>  <span>Clavier</span></a></li>
+                <li role="presentation"><a href="#recent" aria-controls="recent" role="tab" data-toggle="tab"><i class="fa fa-user"></i>  <span>Recent</span></a></li>
+                <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab"><i class="fa fa-envelope-o"></i>  <span>Contact</span></a></li>
+            
+              </ul>
+              
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="clavier">
+                    <div class="clavier" style="
+                    font-size: 23px;
+                " >
+    
+                       <div class="form" > 
+                        <form id="form">
+                            <div class="number">
+                                <input type="text " id="number" style="
+                                font-size: 14px;
+                            "/>
+                            </div>
+
+                            <div class="reset" >
+                                <button ><img class="delete"src="img/icon-delete.png"></img></button>
+                               </div>
+                            </form>
+                         
+                           <div class="row">
+                                <div class="col-3">
+                                    <button>1</button>
+                                </div>
+                                <div class="col-3">
+                                    <button>2</button>
+                                    <span>ABC</span>
+                                </div>
+                                <div class="col-3">
+                                    <button>3</button>
+                                    <span>DEF</span>
+                                </div>
+                          </div>
+
+                        <div class="row">
+                            <div class="col-3">
+                                <button>4</button>
+                                <span>GHI</span>
+                            </div>
+                            <div class="col-3">
+                                <button>5</button>
+                                <span>JKL</span>
+                            </div>
+                            <div class="col-3">
+                                <button>6</button>
+                                <span>MNO</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3">
+                                <button>7</button>
+                                <span>PQRS</span>
+                            </div>
+                            <div class="col-3">
+                                <button>8</button>
+                                <span>TUV</span>
+                            </div>
+                            <div class="col-3">
+                                <button>9</button>
+                                <span>WXYZ</span>
+                               
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3">
+                                <button>*</button>
+                            </div>
+                            <div class="col-3">
+                                <button>0</button>
+                            </div>
+                            <div class="col-3">
+                                <button>#</button>
+                            </div>
+                        </div>
+                    
+                        <div class="row" style="
+                        margin-top: 30px;
+                    ">
+                            <div class="col-2">
+                                <button id="add "  id="phonenumberbtn " data-toggle="modal" data-target="#exampleModal">
+                                    <img class="add" src="img/Groupe 11.png"></img>
+                                </button>
+                                                </div>
+                            <div class="col-2">
+                                <button type="button" id="call "onclick="call() " data-toggle="modal" data-target="#exampleModal1">
+                                    <img class="call" src="img/Groupe 12.png"></img>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                       
+                     
+                       </div>
+                       
+                </div>
+               
+                <div role="tabpanel" class="tab-pane"  id="recent">
+                   <h6 style="
+                   color: white;
+                   border-bottom: 2px solid white;
+               ">Aujourd'hui</h6>
+                    <div class="container">
+
+                        
+                        <ul class="list-group lists" id="lists">
+                            
+                        </ul>
+                    </div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane"    id="contact">
+                    <div class="container " >
+
+
+                        <ul  class="list-group lists" id="contact" ></ul>
+                    </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="
+            margin-top: 210px;
+            width: 263px;
+        ">
+                <div class="modal-content"style="
+                background-color: #600992;
+                background-image: linear-gradient(#600992,#91799F);
+                color: white;
+            ">
+                   
+                        <h3 class="modal-title" id="exampleModalLabel">Calling ...</h3>
+                      
+                   
+                    <div class="modal-body" id="callPopUp" style="
+                    font-size: 20px;
+                ">
+
+                    </div>
+                    
+                        <button type="button"  data-dismiss="modal" style="
+                        border: none;
+                        background: none;
+                    "><img src="img/callclose.png" width="80px" height="80px"></img></button>
+                    
+                </div>
+            </div>
+    
+
+            
+            
+            </div>
+
+      
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="
+                    background-color: #600992;
+                    background-image: linear-gradient(#600992,#91799F);
+                    color: white;
+                    width: 270px;
+                ">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel ">
+                                ajouter un contact
+                            </h5>
+                            <button type="button " class="close" data-dismiss="modal" aria-label="Close " style="color: white;">
+              <span aria-hidden="true ">&times;</span>
+            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                              
+                                <input type="text " class="border border-primary form-control name" id="name" placeholder="nom" required style="
+                                color: white;
+                                font-size: 16px;
+                            "/>
+                                
+                                <input type="text " class="border border-primary form-control name" id="number2" placeholder="numero" required style="
+                                color: white;
+                                font-size: 16px;
+                            " />
+                                <button type="button "  data-dismiss="modal" onclick="saveNumber() " style="
+                                border: none;
+                                background: none;
+                            ">
+                                    <img class="add" src="img/Groupe 11.png"></img>
+                                    </button>
+                                    
+
+                                    
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+   
+
+        
+      
+   <script>
+            var input = document.querySelectorAll(".number input")[0];
+        var reset = document.querySelectorAll(".reset button")[0];
+        var btn = document.querySelectorAll(".col-3 button");
+
+        for (var i = 0; i < btn.length; i++) {
+        btn[i].addEventListener("click", function () {
+            var num1 = input.value;
+            var num2 = this.childNodes[0].nodeValue;
+
+            num = num1 + num2;
+
+            input.value = num;
+        });
+        }
+
+        reset.addEventListener("click", function () {
+        input.value = "";
+        });
+   </script>
+       <script src="server.js"></script>
+   
+
+       
+</body>
+</html>
